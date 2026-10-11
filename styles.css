@@ -1,0 +1,229 @@
+/* =========================================================
+   Dulce Caribe — Propuesta de paquete gráfico
+   Paleta, tipografía y componentes
+   ========================================================= */
+:root{
+  --ink:#2D2926; --cream:#FFF3E5; --sun:#FFC72C; --orange:#FF8A3D; --pink:#FB66E5;
+  --teal:#2EC4B6; --green:#4ABA6F; --blue:#6595F9; --white:#fff;
+  --stroke:clamp(3px,.07em,6px);
+  --r:22px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;overflow-x:clip;-webkit-text-size-adjust:100%}
+body{font-family:'Fredoka',system-ui,sans-serif;color:var(--ink);background:var(--cream);font-size:17px;line-height:1.5;overflow-x:hidden;-webkit-tap-highlight-color:transparent}
+img,svg{display:block;max-width:100%}
+a{color:inherit}
+.wrap{width:min(1100px,100% - 32px);margin-inline:auto;position:relative;z-index:2}
+section{position:relative;padding:clamp(92px,10vw,128px) 0;overflow:hidden}
+
+/* ---------- títulos tipo sticker ---------- */
+.sticker{font-family:'Bagel Fat One',cursive;font-weight:400;text-transform:uppercase;line-height:1.02;letter-spacing:.01em;
+  color:var(--white);-webkit-text-stroke:var(--stroke) var(--ink);paint-order:stroke fill;
+  text-shadow:.06em .07em 0 var(--orange);overflow-wrap:break-word}
+.sticker.pink{text-shadow:.06em .07em 0 var(--pink)}
+.sticker.teal{text-shadow:.06em .07em 0 var(--teal)}
+h1.sticker{font-size:clamp(40px,10.5vw,112px)}
+h2.sticker{font-size:clamp(30px,6.4vw,66px)}
+.eyebrow{display:inline-block;font-weight:600;text-transform:uppercase;letter-spacing:.12em;font-size:13px;background:var(--ink);color:var(--cream);padding:6px 14px;border-radius:99px;margin-bottom:18px}
+.lead{font-size:clamp(17px,2.2vw,21px);max-width:620px}
+
+/* ---------- barra de progreso + nav ---------- */
+#bar{position:fixed;top:0;left:0;height:6px;width:0;background:linear-gradient(90deg,var(--pink),var(--sun),var(--teal));z-index:100;border-bottom:2px solid var(--ink)}
+header{position:fixed;top:6px;left:0;right:0;z-index:90;padding:10px 16px;pointer-events:none}
+.nav{pointer-events:auto;width:min(1100px,100%);margin-inline:auto;display:flex;align-items:center;justify-content:space-between;gap:10px;
+  background:var(--sun);border:2.5px solid var(--ink);border-radius:99px;padding:6px 8px 6px 12px;box-shadow:0 4px 0 var(--ink)}
+.logo{font-family:'Bagel Fat One';font-size:20px;text-decoration:none;display:flex;gap:8px;align-items:center;white-space:nowrap}
+.mini{width:36px;flex:none}
+.city{font-weight:600;font-size:14px;background:var(--pink);border:2.5px solid var(--ink);border-radius:99px;padding:6px 14px;box-shadow:0 3px 0 var(--ink);white-space:nowrap}
+@media(max-width:380px){.logo{font-size:16px;gap:6px}.mini{width:30px}.city{font-size:12px;padding:5px 10px}}
+
+.btn{display:inline-flex;align-items:center;gap:10px;font:600 17px 'Fredoka';text-decoration:none;cursor:pointer;
+  background:var(--pink);color:var(--ink);border:3px solid var(--ink);border-radius:99px;padding:13px 26px;box-shadow:0 5px 0 var(--ink);
+  transition:transform .15s,box-shadow .15s}
+.btn:hover{transform:translateY(-3px) rotate(-1deg);box-shadow:0 8px 0 var(--ink)}
+.btn:active{transform:translateY(3px);box-shadow:0 1px 0 var(--ink)}
+
+/* =========================================================
+   Mascotas (SVG generado en mascots.js)
+   ========================================================= */
+.fl{position:absolute;z-index:3;width:var(--w,100px);will-change:transform}
+.fl.off{display:none}
+/* posiciones base (main.js las reacomoda si chocan con texto) */
+.at-tr{top:22px;right:3%} .at-tl{top:22px;left:3%}
+.at-br{bottom:22px;right:3%} .at-bl{bottom:22px;left:3%}
+.at-hr{bottom:15%;right:7%}
+.at-ml,.at-mr{display:none;top:calc(50% - var(--w,100px)/2)}
+.at-ml{left:calc((100vw - 1100px)/4 - var(--w,100px)/2)}
+.at-mr{right:calc((100vw - 1100px)/4 - var(--w,100px)/2)}
+@media(min-width:1320px){.at-ml,.at-mr{display:block}}
+#hero .at-tr,#hero .at-tl{top:100px}
+#intro .at-tr,#intro .at-tl{top:56px}
+@media(min-width:760px) and (max-width:1099px){
+  .fl{width:calc(var(--w,100px) * .78)}
+  .at-tr,.at-tl{top:16px} .at-br,.at-bl{bottom:16px}
+}
+@media(max-width:759px){
+  .fl{width:var(--mw,58px)}
+  .at-tr,.at-tl{top:14px} .at-br,.at-bl,.at-hr{bottom:14px}
+  .at-tr,.at-br,.at-hr{right:12px} .at-tl,.at-bl{left:12px}
+  #hero{padding-top:156px}
+  #hero .at-tr,#hero .at-tl{top:90px}
+  #intro .at-tr,#intro .at-tl{top:44px}
+}
+
+.mascot{overflow:visible;animation:bob 5s ease-in-out infinite;cursor:pointer;transform-origin:50% 85%}
+.fl:nth-of-type(2n) .mascot{animation-duration:6.4s;animation-direction:reverse}
+@keyframes bob{50%{transform:translateY(-10px) rotate(5deg)}}
+@keyframes wig{20%{transform:rotate(-14deg) scale(1.1)}50%{transform:rotate(12deg) scale(1.12)}80%{transform:rotate(-6deg) scale(1.05)}}
+@keyframes jump{30%{transform:translateY(-22px) scale(.88,1.16)}60%{transform:translateY(0) scale(1.16,.84)}80%{transform:translateY(-6px) scale(.97,1.04)}}
+@media(hover:hover){.mascot:hover{animation:wig .6s ease-in-out}}
+.mascot.jump{animation:jump .7s cubic-bezier(.3,.7,.4,1)}
+.eyes{transform-box:fill-box;transform-origin:center;animation:blink 4.6s infinite}
+@keyframes blink{0%,91%,100%{transform:scaleY(1)}94.5%{transform:scaleY(.08)}}
+.pupil{transition:transform .14s ease-out}
+.spinr{transform-box:view-box;transform-origin:50px 50px;animation:spin 18s linear infinite}
+.spinr.slow{animation-duration:28s;animation-direction:reverse}
+@keyframes spin{to{transform:rotate(360deg)}}
+.wave{transform-box:view-box;animation:wave 1.4s ease-in-out infinite}
+.wave.l{animation-name:wavel}
+@keyframes wave{50%{transform:rotate(-24deg)}}
+@keyframes wavel{50%{transform:rotate(24deg)}}
+.tw{transform-box:fill-box;transform-origin:center;animation:tw 2.2s ease-in-out infinite}
+@keyframes tw{50%{transform:scale(.45) rotate(45deg);opacity:.5}}
+#cierre .fl .mascot{filter:drop-shadow(1.5px 0 0 #FFF3E5) drop-shadow(-1.5px 0 0 #FFF3E5) drop-shadow(0 1.5px 0 #FFF3E5) drop-shadow(0 -1.5px 0 #FFF3E5)}
+
+/* ---------- aparición al hacer scroll ---------- */
+.rv{opacity:0;transform:translateY(46px);transition:opacity .7s cubic-bezier(.2,.8,.2,1),transform .7s cubic-bezier(.2,.8,.2,1);transition-delay:var(--d,0s)}
+.rv.l{transform:translateX(-60px)} .rv.r{transform:translateX(60px)}
+.rv.pop{transform:scale(.6) rotate(-6deg);transition-timing-function:cubic-bezier(.34,1.7,.5,1)}
+.rv.in{opacity:1;transform:none}
+.measuring .rv,.measuring .dots,.measuring .coin,.measuring .tilt{transform:none!important;transition:none!important}
+.word{display:inline-block;opacity:0;transform:translateY(40px) rotate(-5deg) scale(.8);animation:wd .7s cubic-bezier(.34,1.6,.5,1) forwards;animation-delay:calc(var(--i)*.09s + .2s)}
+@keyframes wd{to{opacity:1;transform:none}}
+
+/* ---------- 1. Hero ---------- */
+#hero{background:var(--sun);min-height:100svh;display:flex;align-items:center;padding-top:150px}
+#hero .lead{margin:26px 0 30px}
+.cta-row{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+.hero-grid{display:grid;gap:40px;align-items:center}
+.hero-art{display:none}
+@media(min-width:960px){
+  .hero-grid{grid-template-columns:1.25fr .75fr}
+  h1.sticker{font-size:clamp(56px,6.4vw,92px)}
+  #hero .m-only{display:none}
+  .hero-art{display:block;position:relative;aspect-ratio:1;width:100%;max-width:440px;justify-self:end;margin-right:4%}
+  .hero-art::before{content:"";position:absolute;inset:9%;border-radius:50%;border:4px solid var(--ink);box-shadow:0 10px 0 var(--ink);
+    background:var(--pink) radial-gradient(var(--cream) 2.6px,transparent 3.2px) 0 0/24px 24px}
+  .hero-art::after{content:"";position:absolute;inset:2%;border-radius:50%;border:3px dashed var(--ink);opacity:.35;animation:spin 40s linear infinite}
+  .hero-art .a{position:absolute;z-index:1;transition:transform .35s cubic-bezier(.2,.8,.2,1)}
+}
+.scroll-hint{position:absolute;bottom:22px;left:50%;translate:-50% 0;z-index:3;font-weight:600;font-size:14px;text-transform:uppercase;letter-spacing:.1em;animation:bob 2s infinite}
+
+/* ---------- cinta ---------- */
+.marq{background:var(--ink);color:var(--sun);border-block:3px solid var(--ink);overflow:hidden;white-space:nowrap;padding:14px 0;transform:rotate(-1.2deg);margin:-14px -10px;position:relative;z-index:5}
+.marq div{display:inline-block;font-family:'Bagel Fat One';font-size:22px;text-transform:uppercase;letter-spacing:.04em;animation:mq 28s linear infinite}
+.marq span{margin:0 18px;color:var(--pink)}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+/* ---------- intro ---------- */
+#intro{background:var(--cream);padding-top:150px}
+.three-q{display:grid;gap:16px;margin-top:34px}
+@media(min-width:760px){.three-q{grid-template-columns:repeat(3,1fr)}}
+.q{background:var(--white);border:3px solid var(--ink);border-radius:var(--r);padding:22px;box-shadow:0 6px 0 var(--ink);font-weight:500}
+.q small{display:block;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--orange);margin-bottom:6px}
+
+/* ---------- tarjetas ---------- */
+.card{background:var(--white);border:3px solid var(--ink);border-radius:var(--r);box-shadow:0 7px 0 var(--ink);padding:24px;transition:transform .2s}
+@media(hover:hover){.card:hover{transform:translateY(-6px) rotate(-.6deg)}}
+.card h3{font-family:'Bagel Fat One';font-weight:400;font-size:26px;margin-bottom:8px;line-height:1.1}
+.tag{display:inline-block;font-weight:600;font-size:13px;border:2px solid var(--ink);border-radius:99px;padding:3px 12px;margin:0 6px 6px 0;background:var(--white)}
+.goal{margin-top:14px;padding:12px 14px;border-radius:14px;background:var(--white);border:2px dashed var(--ink);font-size:15px}
+.head{max-width:760px;margin-bottom:46px}
+
+/* ---------- 2. Reels ---------- */
+#reels{background:var(--pink)}
+.reels{display:grid;gap:44px}
+@media(min-width:900px){.reels{grid-template-columns:repeat(3,1fr);gap:26px}}
+.dots{background:var(--cream) radial-gradient(var(--sun) 2.4px,transparent 3px) 0 0/22px 22px;border:3.5px solid var(--ink);border-radius:30px;box-shadow:0 8px 0 var(--ink);padding:54px 22px 24px;position:relative;transition:transform .25s}
+.dots.rv.in:nth-child(odd){transform:rotate(-1deg)}
+.dots.rv.in:nth-child(even){transform:rotate(1deg)}
+@media(hover:hover){.dots.rv.in:hover{transform:translateY(-8px)}}
+.dots .num{position:absolute;top:-24px;left:14px;font-family:'Bagel Fat One';font-size:64px;line-height:1;color:var(--sun);-webkit-text-stroke:3.5px var(--ink);paint-order:stroke fill;text-shadow:3px 4px 0 var(--ink)}
+.dots .face{position:absolute;top:-38px;right:8px;width:72px}
+.dots h3{font-family:'Bagel Fat One';font-weight:400;font-size:26px;line-height:1.25;margin:0 0 10px;background:var(--cream);display:inline;box-decoration-break:clone;-webkit-box-decoration-break:clone;padding:2px 8px;border-radius:8px}
+.dots .about{background:var(--cream);border-radius:14px;padding:10px 12px;margin-top:14px;font-weight:500}
+.dots .kick{display:block;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--orange);margin-bottom:2px}
+.steps{list-style:none;margin-top:6px;display:grid;gap:6px;counter-reset:s}
+.steps li{counter-increment:s;display:flex;gap:10px;align-items:center;font-weight:500;font-size:15px}
+.steps li::before{content:counter(s);flex:none;width:24px;height:24px;border-radius:50%;background:var(--teal);border:2.5px solid var(--ink);display:grid;place-items:center;font-weight:700;font-size:12px}
+.incl{margin-top:44px;display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-weight:600}
+
+/* ---------- 3. Piezas ---------- */
+#piezas{background:var(--teal)}
+.big25{font-family:'Bagel Fat One';font-size:clamp(90px,22vw,230px);line-height:.9;color:var(--sun);-webkit-text-stroke:var(--stroke) var(--ink);paint-order:stroke fill;text-shadow:.04em .05em 0 var(--ink);display:inline-block}
+.pieces{display:grid;gap:22px;margin-top:20px}
+@media(min-width:900px){.pieces{grid-template-columns:repeat(3,1fr)}}
+.pc .count{font-family:'Bagel Fat One';font-size:70px;line-height:1;-webkit-text-stroke:3px var(--ink);paint-order:stroke fill}
+.pc.a .count{color:var(--pink)} .pc.b .count{color:var(--green)} .pc.c .count{color:var(--blue)}
+.mock{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:16px}
+.mock i{aspect-ratio:1;border:2px solid var(--ink);border-radius:8px;background:var(--cream)}
+.pc.a .mock i{aspect-ratio:9/16;background:var(--pink)}
+.pc.b .mock i{background:var(--green)} .pc.c .mock i{background:var(--blue)}
+.pc.c .mock{grid-template-columns:repeat(5,1fr)}
+.sum{margin-top:26px;font-weight:600;background:var(--ink);color:var(--cream);border-radius:var(--r);padding:16px 22px;display:inline-block}
+
+/* ---------- 4. Fotografía ---------- */
+#foto{background:var(--cream)}
+.chips{display:grid;gap:12px;max-width:560px}
+@media(min-width:900px){.chips{grid-template-columns:repeat(3,1fr);max-width:none}}
+.chip{display:flex;gap:12px;align-items:center;font-weight:600;background:var(--white);border:3px solid var(--ink);border-radius:18px;padding:14px 16px;box-shadow:0 5px 0 var(--ink)}
+.chip b{flex:none;width:34px;height:34px;border-radius:50%;background:var(--green);border:2.5px solid var(--ink);display:grid;place-items:center}
+.note{margin-top:14px;font-size:14px;font-weight:500;opacity:.85}
+
+/* ---------- 5. Logo ---------- */
+#logo{background:var(--blue)}
+.logo-row{display:grid;gap:30px;align-items:center}
+@media(min-width:800px){.logo-row{grid-template-columns:1fr 1fr}}
+.avatars{display:flex;gap:22px;justify-content:center;align-items:flex-end;flex-wrap:wrap}
+.av{border:3.5px solid var(--ink);border-radius:50%;background:var(--sun);display:grid;place-items:center;font-family:'Bagel Fat One';text-align:center;line-height:1;box-shadow:0 6px 0 var(--ink)}
+.av.big{width:150px;height:150px;font-size:18px}.av.sm{width:90px;height:90px;font-size:12px;background:var(--pink)}
+.av small{font-family:'Fredoka';font-weight:600;font-size:11px;display:block}
+
+/* ---------- 6. Menú ---------- */
+#menu{background:var(--orange)}
+.menu-row{display:grid;gap:30px;align-items:center}
+@media(min-width:860px){.menu-row{grid-template-columns:1.1fr .9fr}}
+.menu-items{display:grid;gap:14px}
+.mi{display:flex;gap:16px;align-items:center}
+.ico{flex:none;width:58px;height:58px;border-radius:16px;border:3px solid var(--ink);background:var(--sun);display:grid;place-items:center;font-family:'Bagel Fat One';font-size:20px;box-shadow:0 4px 0 var(--ink)}
+.qr{width:150px;aspect-ratio:1;background:var(--white);border:3px solid var(--ink);border-radius:18px;padding:12px;margin:0 auto;box-shadow:0 6px 0 var(--ink)}
+.qr div{width:100%;height:100%;background:conic-gradient(var(--ink) 25%,transparent 0 50%,var(--ink) 0 75%,transparent 0) 0 0/24px 24px;opacity:.9;border-radius:6px}
+.tilt.rv.in{transform:rotate(2deg)}
+.qr-card{text-align:center;max-width:360px;width:100%;margin-inline:auto}
+
+/* ---------- 7. Inversión ---------- */
+#precio{background:var(--green);text-align:center}
+.coin{width:min(520px,100%);margin:0 auto;background:var(--sun);border:4px solid var(--ink);border-radius:36px;box-shadow:0 10px 0 var(--ink);padding:30px 16px}
+.coin.rv.in{transform:rotate(-2deg)}
+.coin .amount{font-family:'Bagel Fat One';font-size:clamp(56px,15vw,120px);line-height:1;color:var(--white);-webkit-text-stroke:var(--stroke) var(--ink);paint-order:stroke fill;text-shadow:.05em .06em 0 var(--pink)}
+.coin p{font-weight:600}
+.terms{display:grid;gap:18px;margin-top:44px;text-align:left}
+@media(min-width:800px){.terms{grid-template-columns:repeat(3,1fr)}}
+.bigN{font-family:'Bagel Fat One';font-size:44px;color:var(--orange);-webkit-text-stroke:3px var(--ink);paint-order:stroke fill;line-height:1}
+.tl{display:flex;gap:6px;margin-top:10px}
+.tl i{flex:1;height:14px;border:2.5px solid var(--ink);border-radius:9px;background:var(--cream);position:relative;overflow:hidden}
+.tl i::after{content:"";position:absolute;inset:0;background:var(--pink);transform:scaleX(0);transform-origin:left;transition:transform .8s ease calc(var(--k)*.25s + .4s)}
+.tl.in i::after{transform:scaleX(1)}
+.callout{margin-top:34px;font-family:'Bagel Fat One';font-size:clamp(20px,3vw,30px);color:var(--ink);max-width:720px;margin-inline:auto;line-height:1.2}
+.fine{margin:26px auto 0;max-width:720px;background:var(--cream);border:3px solid var(--ink);border-radius:var(--r);padding:16px 20px;font-size:15px;text-align:left}
+
+/* ---------- 8. Cierre ---------- */
+#cierre{background:var(--ink);color:var(--cream);text-align:center}
+#cierre .sticker{text-shadow:.06em .07em 0 var(--pink);font-size:clamp(34px,7.5vw,84px)}
+#cierre p{margin:22px auto 32px;max-width:520px}
+footer{font-size:13px;opacity:.7;margin-top:60px}
+
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  .rv,.word{opacity:1;transform:none}
+}
