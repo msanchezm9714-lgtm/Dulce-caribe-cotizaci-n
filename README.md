@@ -5,16 +5,14 @@ Landing estática (HTML + CSS + JS, sin dependencias ni build) para presentar la
 ## Estructura
 
 ```
-web/                    ← raíz del repo y de Vercel
+web/                    ← raíz del repo y de Vercel (todo suelto, sin subcarpetas)
 ├── index.html          ← contenido de la propuesta
+├── styles.css          ← paleta (:root), tipografía y secciones
+├── mascots.js          ← personajes ilustrados (SVG generado)
+├── main.js             ← animaciones de scroll + acomodo anti-choques
 ├── favicon.svg
 ├── og-image.png        ← imagen al compartir el link (1200×630)
-├── vercel.json         ← URLs limpias + cabeceras básicas
-└── assets/
-    ├── css/styles.css  ← paleta (:root), tipografía y secciones
-    └── js/
-        ├── mascots.js  ← personajes ilustrados (SVG generado)
-        └── main.js     ← animaciones de scroll + acomodo anti-choques
+└── vercel.json         ← URLs limpias + cabeceras básicas
 ```
 
 ## Editar rápido
@@ -23,7 +21,7 @@ web/                    ← raíz del repo y de Vercel
 |---|---|
 | Textos, precio, plazos | `index.html` |
 | WhatsApp del botón "Quiero el paquete" | `index.html` → busca `wa.me/52…` |
-| Colores | `assets/css/styles.css` → bloque `:root` |
+| Colores | `styles.css` → bloque `:root` |
 | Personajes de cada sección | `index.html` → `<div class="fl at-tr" data-m="berry">` |
 
 **Personajes:** `data-m` = `sun cloud heart star berry cherry lemon orange pineapple daisy blossom bolt cupcake cone rainbow` · `data-c` = color principal (hex) · `at-tr / at-tl / at-br / at-bl` = esquina · `--w` tamaño en PC, `--mw` en celular.
