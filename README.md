@@ -49,10 +49,8 @@ git push -u origin main
 2. Framework Preset: **Other** · Build Command: *(vacío)* · Output Directory: *(vacío / `.`)*.
 3. **Deploy**. Cada `push` a `main` vuelve a publicar solo.
 
-## Después de publicar: activar la vista previa al compartir
+## Vista previa al compartir
 
-`index.html` tiene `https://TU-DOMINIO.vercel.app` en 5 lugares (canonical, `og:url`, `og:image`, `twitter:image`). Búscalo y reemplázalo por tu URL real de Vercel (ej. `https://dulce-caribe.vercel.app`), haz commit y listo.
-
-Para probar: pega el link en WhatsApp o en https://www.opengraph.xyz. Si WhatsApp muestra la imagen vieja, es caché: agrega `?v=2` al final del link.
+Las etiquetas OG de `index.html` ya apuntan a https://dulce-caribe-cotizacion.vercel.app. Para probar: pega el link en WhatsApp o en https://www.opengraph.xyz. Si WhatsApp muestra la imagen vieja, es caché: agrega `?v=2` al link.
 
 La imagen se regenera desde `../og/og.html` (fuera de `web/`, no se publica): ábrela en Chrome a 1200×630 y captura.
